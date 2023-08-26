@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const router = require("./src/block/block.route");
+const { getBlock, addBlock } = require("./src/block/block.controler");
 
 //#region initialize app
 const app = express();
@@ -12,7 +13,8 @@ app.get("/", (req, res) => {
   res.json("Welcome to you our sit");
 });
 
-app.use("/api", router);
+app.get('/block',getBlock);
+app.post("/block",addBlock);
 
 module.exports = app;
 
