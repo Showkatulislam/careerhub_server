@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const router = require("./src/block/block.route");
-const { getBlock, addBlock } = require("./src/block/block.controler");
+const router = require("./block.route");
+const { getBlock, addBlock,deleteBlock } = require("./block.controler");
 
 //#region initialize app
 const app = express();
@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 
 app.get('/block',getBlock);
 app.post("/block",addBlock);
+app.delete("/block/:id",deleteBlock);
 
 module.exports = app;
 
